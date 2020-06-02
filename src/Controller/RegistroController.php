@@ -25,19 +25,24 @@ class RegistroController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //vamos a administrar mediante doctrine
+            //vamos a administrar mediante doctrine para la bd
             $em =  $this->getDoctrine()->getManager();
 
 
             //aqui encriptamos la contraseña del usuario
             $usuario->setPassword($passwordEncoder->encodePassword($usuario, $form['password']->getData()));
+
             //vamos a insertarle un rol de usuario normal por defecto
             $usuario->setRoles(['ROLE_USER']);
 
+            //insertamos los datos a la bd
             $em-> persist($usuario);
             $em->flush();
 
+            //enviamos un mensaje de que se rgistro al usuario
             $this->addFlash('exito', 'Se ha registrado!');
+
+            //redireccionamos a la misma ruta
             return $this->redirectToRoute('registro');
         } else {
             
