@@ -11,6 +11,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class Usuario implements UserInterface
 {
+
+    const REGISTRO_EXITOSO = 'Se ha registrado!';
     
 
     /**
@@ -75,6 +77,11 @@ class Usuario implements UserInterface
      * @ORM\Column(type="date", nullable=true)
      */
     private $cumpleanos;
+
+    //crearemos un constructor que se encargara de inicializar algunas variables
+    public function __construct(){
+        $this->roles= ['ROLE_USER'];
+    }
 
     public function getId(): ?int
     {

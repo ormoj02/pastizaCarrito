@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Producto
 {
+    const REGISTRO_EXITOSO = 'Producto agregado exitosamente!';
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -48,7 +49,7 @@ class Producto
     private $edad;
 
     /**
-     * @ORM\Column(type="blob", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imagen;
 
