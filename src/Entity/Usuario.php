@@ -21,12 +21,12 @@ class Usuario implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nombre;
 
     /**
-     * @ORM\Column(type="string", length=180)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $apellidos;
 
@@ -41,7 +41,7 @@ class Usuario implements UserInterface
     private $roles = [];
 
     /**
-     * @ORM\Column(type="string", length=180)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $email;
 
@@ -52,29 +52,29 @@ class Usuario implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=180)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $pais;
 
     /**
-     * @ORM\Column(type="string", length=180)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $ciudad;
 
     /**
-     * @ORM\Column(type="string", length=180)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $direccion;
 
     /**
-     * @ORM\Column(type="string", length=180)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $codigo_postal;
+    private $cp;
 
     /**
-     * @ORM\Column(type="integer", length=180)
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $ano_nacimiento;
+    private $cumpleanos;
 
     public function getId(): ?int
     {
@@ -150,92 +150,100 @@ class Usuario implements UserInterface
     }
 
     //getters y setters extra
-    public function getNombre(){
+    public function getNombre(): ?string
+    {
         return $this->nombre;
     }
 
-    /**
-     * @param mixed $nombre
-     */
-    public function setNombre($nombre): void{
+    public function setNombre(?string $nombre): self
+    {
         $this->nombre = $nombre;
+
+        return $this;
     }
 
-    public function getApellidos(){
+    public function getApellidos(): ?string
+    {
         return $this->apellidos;
     }
 
-    /**
-     * @param mixed $apellidos
-     */
-    public function setApellidos($apellidos): void{
+    public function setApellidos(?string $apellidos): self
+    {
         $this->apellidos = $apellidos;
+
+        return $this;
     }
 
-    public function getEmail(){
+    public function getEmail(): ?string
+    {
         return $this->email;
     }
 
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email): void{
+    public function setEmail(?string $email): self
+    {
         $this->email = $email;
+
+        return $this;
     }
 
-    public function getPais(){
-        return $this->paisl;
+    public function getPais(): ?string
+    {
+        return $this->pais;
     }
 
-    /**
-     * @param mixed $pais
-     */
-    public function setPais($pais): void{
+    public function setPais(?string $pais): self
+    {
         $this->pais = $pais;
+
+        return $this;
     }
 
-    public function getCiudad(){
+    public function getCiudad(): ?string
+    {
         return $this->ciudad;
     }
 
-    /**
-     * @param mixed $ciudad
-     */
-    public function setCiudad($ciudad): void{
+    public function setCiudad(?string $ciudad): self
+    {
         $this->ciudad = $ciudad;
+
+        return $this;
     }
 
-    public function getDireccion(){
+    public function getDireccion(): ?string
+    {
         return $this->direccion;
     }
 
-    /**
-     * @param mixed $direccion
-     */
-    public function setDireccion($direccion): void{
+    public function setDireccion(?string $direccion): self
+    {
         $this->direccion = $direccion;
+
+        return $this;
     }
 
-    public function getCodigo_postal(){
-        return $this->codigo_postal;
+    public function getCp(): ?string
+    {
+        return $this->cp;
     }
 
-    /**
-     * @param mixed $codigo_postal
-     */
-    public function setCodigo_postal($codigo_postal): void{
-        $this->codigo_postal = $codigo_postal;
+    public function setCp(?string $cp): self
+    {
+        $this->cp = $cp;
+
+        return $this;
     }
 
-    public function getAno_nacimiento(){
-        return $this->ano_nacimiento;
+    public function getCumpleanos(): ?\DateTimeInterface
+    {
+        return $this->cumpleanos;
     }
 
-    /**
-     * @param mixed $ano_nacimiento
-     */
-    public function setAno_nacimiento($ano_nacimiento): void{
-        $this->ano_nacimiento = $ano_nacimiento;
+    public function setCumpleanos(?\DateTimeInterface $cumpleanos): self
+    {
+        $this->cumpleanos = $cumpleanos;
+
+        return $this;
     }
 
     //Relaciones claves foraneas

@@ -48,6 +48,11 @@ class Producto
     private $edad;
 
     /**
+     * @ORM\Column(type="blob", nullable=true)
+     */
+    private $imagen;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $precio;
@@ -129,6 +134,17 @@ class Producto
         return $this;
     }
 
+    public function getImagen(){
+        return $this->imagen;
+    }
+
+    /**
+     * @param mixed $imagen
+     */
+    public function setImagen($imagen): void{
+        $this->imagen = $imagen;
+    }
+
     public function getPrecio(): ?int
     {
         return $this->precio;
@@ -141,6 +157,7 @@ class Producto
         return $this;
     }
 
+    
     //Relaciones de claves foraneas
 
     //producto - compra_producto
