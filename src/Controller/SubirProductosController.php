@@ -67,7 +67,8 @@ class SubirProductosController extends AbstractController
             $this->addFlash('exito', Producto::REGISTRO_EXITOSO);
 
             //redireccionamos al dashboard
-            return $this->redirectToRoute('dashboard');
+            // return $this->redirectToRoute('dashboard');
+            return $this->redirectToRoute('subir_productos');
         }//fin del if
 
 
