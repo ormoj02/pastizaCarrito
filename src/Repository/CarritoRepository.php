@@ -23,7 +23,7 @@ class CarritoRepository extends ServiceEntityRepository
     public function buscarTodosLosCarritos(){
         return $this->getEntityManager()
         ->createQuery('
-            SELECT carrito.usuario_id, carrito.estado 
+            SELECT carrito.usuario, carrito.estado 
             FROM App:Carrito carrito
         ')->getResult();
     }

@@ -28,39 +28,31 @@ class PanelAdministradorController extends AbstractController
         //vamos a mostrar los datos de ls BD
 
         //Seleccionamos los datos de la tabla productos
-        $query = $em->getRepository(Producto::class)->buscarTodosLosProductos();
-        $pagination = $paginator->paginate(
-            $query, /* query NOT result */
-            $request->query->getInt('page', 1), /*page number*/
-            5 /*limit per page*/
-        );    
+        $producto = $em->getRepository(Producto::class)->buscarTodosLosProductos();    
 
         //Seleccionamos los datos de la tabla usuario
-        // $usuario = $em->getRepository(Usuario::class)->buscarTodosLosUsuarios();
+        $usuario = $em->getRepository(Usuario::class)->buscarTodosLosUsuarios();
 
         //Seleccionamos los datos de la tabla productos
-        // $carrito = $em->getRepository(Carrito::class)->buscarTodosLosCarritos();
+        $carrito = $em->getRepository(Carrito::class)->findAll();
 
         //Seleccionamos los datos de la tabla productos
-        // $compra = $em->getRepository(CompraProducto::class)->findAll();
+        $compra = $em->getRepository(CompraProducto::class)->findAll();
 
         //Seleccionamos los datos de la tabla productos
-        // $pedido = $em->getRepository(Pedido::class)->findAll();
+        $pedido = $em->getRepository(Pedido::class)->findAll();
 
         //Seleccionamos los datos de la tabla productos
-        // $ticket = $em->getRepository(Ticket::class)->findAll();
+        $ticket = $em->getRepository(Ticket::class)->findAll();
 
         return $this->render('panel_administrador/index.html.twig', [
             'controller_name' => 'PanelAdministradorController',
-            'pagination' => $pagination,
-            /*
+            'producto' => $producto,
             'usuario' => $usuario,
             'carrito' => $carrito,
             'compra' => $compra,
             'pedido' => $pedido,
             'ticket' => $ticket,
-            */
-            
         ]);
     }
 }

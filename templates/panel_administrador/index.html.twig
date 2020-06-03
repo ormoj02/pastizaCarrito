@@ -11,40 +11,10 @@
 <div class="example-wrapper">
     <h1>Beinvenido a  {{ controller_name }}!</h1>
 </div>
-
-<div class="count">
-    {{ pagination.getTotalItemCount }}
-</div>
-<table>
-    <tr>
-        {# sorting of properties based on query components #}
-        <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
-        <th{% if pagination.isSorted('a.Especie') %} class="sorted"{% endif %}>
-            {{ knp_pagination_sortable(pagination, 'Especie', 'a.especie') }}
-        </th>
-        <th{% if pagination.isSorted(['a.date', 'a.time']) %} class="sorted"{% endif %}>
-            {{ knp_pagination_sortable(pagination, 'Release', ['a.date', 'a.time']) }}
-        </th>
-    </tr>
-
-    {# table body #}
-    {% for article in pagination %}
-        <tr {% if loop.index is odd %}class="color"{% endif %}>
-            <td>{{ article.id }}</td>
-            <td>{{ article.especie }}</td>
-            <td>{{ article.piel }}</td>
-            <td>{{ article.sexo }}</td>
-            <td>{{ article.raza }}</td>
-            <td>{{ article.peso }}</td>
-            <td>{{ article.edad }}</td>
-            <td>{{ article.imagen }}</td>
-            <td>{{ article.precio }}</td>
-        </tr>
-    {% endfor %}
-</table>
-{# display navigation #}
-<div class="navigation">
-    {{ knp_pagination_render(pagination) }}
-</div>
-
+{{dump(producto)}}
+{{dump(usuario)}}
+{{dump(carrito)}}
+{{dump(compra)}}
+{{dump(pedido)}}
+{{dump(ticket)}}
 {% endblock %}

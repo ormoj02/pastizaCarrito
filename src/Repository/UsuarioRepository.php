@@ -29,7 +29,7 @@ class UsuarioRepository extends ServiceEntityRepository implements PasswordUpgra
             SELECT usuario.nombre, usuario.apellidos, usuario.username, usuario.roles, usuario.email, 
             usuario.password, usuario.pais, usuario.ciudad, usuario.direccion, usuario.cp, usuario.cumpleanos
             FROM App:Usuario usuario
-        ');
+        ')->getResult();
     }
 
     /**
