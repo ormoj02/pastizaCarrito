@@ -27,6 +27,24 @@ class Carrito
      */
     private $estado;
 
+    //getters y setters generados manualmente
+
+    /**
+     * @return mixed 
+     */
+    public function getUsuario(){
+        return $this->usuario;
+    }
+
+    /**
+     * @param mixed $usuario
+     */
+    public function setUsuario($usuario): void{
+        $this->usuario = $usuario;
+    }
+
+
+
     public function getId(): ?int
     {
         return $this->id;

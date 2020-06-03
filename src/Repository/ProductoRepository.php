@@ -19,6 +19,15 @@ class ProductoRepository extends ServiceEntityRepository
         parent::__construct($registry, Producto::class);
     }
 
+    //querys personalizados
+    public function buscarTodosLosProductos(){
+        return $this->getEntityManager()
+        ->createQuery('
+            SELECT producto.id, producto.especie, producto.piel, producto.sexo, producto.raza, producto.peso, producto.edad, producto.imagen, producto.precio 
+            FROM App:producto producto
+        ')->getResult();
+    }
+
     // /**
     //  * @return Producto[] Returns an array of Producto objects
     //  */

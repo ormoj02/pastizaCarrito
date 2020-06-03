@@ -19,6 +19,15 @@ class CompraProductoRepository extends ServiceEntityRepository
         parent::__construct($registry, CompraProducto::class);
     }
 
+    //querys personalizados
+    public function buscarTodosLosCompraProducto(){
+        return $this->getEntityManager()
+        ->createQuery('
+            SELECT compraproducto.carrito_id 
+            FROM App:CompraProducto compra
+        ');
+    }
+
     // /**
     //  * @return CompraProducto[] Returns an array of CompraProducto objects
     //  */

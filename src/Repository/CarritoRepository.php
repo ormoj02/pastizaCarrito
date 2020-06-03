@@ -18,6 +18,15 @@ class CarritoRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Carrito::class);
     }
+    
+    //querys personalizados
+    public function buscarTodosLosCarritos(){
+        return $this->getEntityManager()
+        ->createQuery('
+            SELECT carrito.usuario_id, carrito.estado 
+            FROM App:Carrito carrito
+        ')->getResult();
+    }
 
     // /**
     //  * @return Carrito[] Returns an array of Carrito objects
