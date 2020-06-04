@@ -23,7 +23,7 @@ class SubirProductosType extends AbstractType
             ->add('raza')
             ->add('peso')
             ->add('edad')
-            ->add('imagen', FileType::class, ['label' => 'Imagen del producto',
+            ->add('imagen', FileType::class, ['label' => 'Producto',
 
             // unmapped means that this field is not associated to any entity property
             'mapped' => false,

@@ -14,7 +14,7 @@ use App\Entity\Producto;
 class DashboardController extends AbstractController
 {
     /**
-     * @Route("/dashboard", name="dashboard")
+     * @Route("/", name="dashboard")
      */
     public function index(PaginatorInterface $paginator, Request $request)
     {
@@ -32,7 +32,7 @@ class DashboardController extends AbstractController
         );    
 
         return $this->render('dashboard/index.html.twig', [
-            'controller_name' => 'Bienvenido al Dashboard',
+            'controller_name' => 'Productos',
             'pagination' => $pagination,
         ]);
     }

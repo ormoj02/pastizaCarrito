@@ -73,7 +73,7 @@ class SubirProductosController extends AbstractController
 
 
         return $this->render('subir_productos/index.html.twig', [
-            'controller_name' => 'SubirProductosController',
+            'controller_name' => 'Subir Productos',
             'formulario' => $form->createView()
         ]);
     }

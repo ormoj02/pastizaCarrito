@@ -60,7 +60,7 @@ class RegistroController extends AbstractController
         }
         
         return $this->render('registro/index.html.twig', [
-            'controller_name' => 'nuevo usuario',
+            'controller_name' => 'Registrate',
             'formulario' => $form->createView()
         ]);
     }
