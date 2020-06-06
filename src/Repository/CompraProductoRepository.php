@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\CompraProducto;
+use App\Entity\Carrito;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -20,13 +21,14 @@ class CompraProductoRepository extends ServiceEntityRepository
     }
 
     //querys personalizados
-    public function buscarTodosLosCompraProducto(){
+    /*public function buscarCarritos(){
         return $this->getEntityManager()
         ->createQuery('
-            SELECT compraproducto.carrito_id 
+            SELECT carrito.usuario 
             FROM App:CompraProducto compra
+            JOIN compra.carrito carrito
         ');
-    }
+    }*/
 
     // /**
     //  * @return CompraProducto[] Returns an array of CompraProducto objects
